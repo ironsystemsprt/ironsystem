@@ -1,0 +1,1069 @@
+/* ==========================
+   IRONSYSTEM - STYLE CSS
+   ========================== */
+
+
+* {
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+
+
+body {
+
+    background:#0b0b0b;
+
+    color:white;
+
+}
+
+
+
+/* ==========================
+   HEADER PRINCIPAL
+   ========================== */
+
+
+header {
+
+min-height:300px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    position:relative;
+
+
+    background-image:
+
+    linear-gradient(
+        rgba(0,0,0,.25),
+        rgba(0,0,0,.35)
+    ),
+
+    url("./imagenes/fondo2.avif");
+
+
+    background-size:cover;
+
+    background-position:center top;
+
+    background-repeat:no-repeat
+   
+
+
+}
+
+
+
+
+.hero {
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+}
+
+
+
+
+
+.logo {
+
+
+    width:260px;
+
+
+    max-width:80%;
+
+
+    height:auto;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+header h1 {
+
+
+    font-size:55px;
+
+
+    letter-spacing:5px;
+
+
+    text-transform:uppercase;
+
+
+    color:#00aaff;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+
+header p {
+
+
+    font-size:22px;
+
+
+    color:white;
+
+
+    max-width:700px;
+
+
+}
+
+
+
+
+
+/* BOTON PRINCIPAL */
+
+
+.btn {
+
+
+    margin-top:35px;
+
+
+    padding:15px 40px;
+
+
+    background:#008cff;
+
+
+    color:white;
+
+
+    text-decoration:none;
+
+
+    border-radius:30px;
+
+
+    font-size:18px;
+
+
+    font-weight:bold;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+.btn:hover {
+
+
+    background:#00c8ff;
+
+
+    transform:scale(1.05);
+
+
+}
+
+
+
+
+
+/* ==========================
+   SERVICIOS
+   ========================== */
+
+
+.servicios {
+
+
+    padding:70px 8%;
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+.servicios h2 {
+
+
+    font-size:40px;
+
+
+    color:#00aaff;
+
+
+    margin-bottom:50px;
+
+
+}
+
+
+
+
+
+.contenedor-servicios {
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:stretch;
+
+
+    flex-wrap:wrap;
+
+
+    gap:30px;
+
+
+}
+
+
+
+
+
+.card {
+
+
+    background:#151515;
+
+
+    width:300px;
+
+
+    min-height:220px;
+
+
+    padding:35px 25px;
+
+
+    border-radius:15px;
+
+
+
+    box-shadow:
+
+    0 0 20px rgba(0,140,255,0.25);
+
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.card:hover {
+
+
+    transform:translateY(-10px);
+
+
+}
+
+
+
+
+
+.card h3 {
+
+
+    color:#00aaff;
+
+
+    font-size:25px;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+.card p {
+
+
+    color:#ddd;
+
+
+    line-height:1.6;
+
+
+}
+
+
+
+
+
+
+/* ==========================
+   SOBRE IRONSYSTEM
+   ========================== */
+
+
+.sobre {
+
+
+    padding:80px 8%;
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        rgba(0,140,255,.25),
+
+        rgba(0,0,0,.95)
+
+    ),
+
+
+    #050505;
+
+
+
+    border-top:1px solid rgba(0,170,255,.4);
+
+    border-bottom:1px solid rgba(0,170,255,.4);
+
+
+}
+
+
+
+
+
+.sobre-contenedor {
+
+
+    max-width:1200px;
+
+
+    margin:auto;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:60px;
+
+
+}
+
+
+
+
+
+.sobre-imagen {
+
+
+    flex:1;
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+.sobre-imagen img {
+
+
+    width:320px;
+
+
+    max-width:100%;
+
+
+    border-radius:20px;
+
+
+    border:3px solid #00aaff;
+
+
+
+    box-shadow:
+
+
+    0 0 35px rgba(0,170,255,.5);
+
+
+}
+
+
+
+
+
+.sobre-texto {
+
+
+    flex:1;
+
+
+}
+
+
+
+
+
+.sobre-texto h2 {
+
+
+    font-size:42px;
+
+
+    color:#00c8ff;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+.sobre-texto h3 {
+
+
+    font-size:26px;
+
+
+    color:white;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+.sobre-texto p {
+
+
+    color:#ddd;
+
+
+    font-size:18px;
+
+
+    line-height:1.7;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+
+.experiencia {
+
+
+    margin-top:25px;
+
+
+    color:#00c8ff;
+
+
+    font-size:19px;
+
+
+    line-height:1.8;
+
+
+}
+
+
+
+
+
+
+/* ==========================
+   CONTACTO
+   ========================== */
+
+
+.contacto {
+
+
+    background:#050505;
+
+
+    padding:60px 20px;
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+.contacto h2 {
+
+
+    color:#00aaff;
+
+
+    font-size:35px;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+.contacto p {
+
+
+    font-size:20px;
+
+
+    margin:10px;
+
+
+}
+
+
+
+
+
+
+/* ==========================
+   FOOTER
+   ========================== */
+
+
+footer {
+
+
+    background:#000;
+
+
+    padding:20px;
+
+
+    text-align:center;
+
+
+    color:#777;
+
+
+}
+
+
+
+
+
+/* ==========================
+   WHATSAPP
+   ========================== */
+
+
+.whatsapp {
+
+
+    position:fixed;
+
+
+    right:25px;
+
+
+    bottom:25px;
+
+
+    z-index:999;
+
+
+}
+
+
+
+
+
+.whatsapp img {
+
+
+    width:70px;
+
+
+    height:70px;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.whatsapp img:hover {
+
+
+    transform:scale(1.15);
+
+
+}
+
+
+
+
+
+
+
+/* ==========================
+   CELULARES
+   ========================== */
+
+
+@media(max-width:768px){
+
+
+
+header {
+
+
+    height:550px;
+
+
+}
+
+
+
+
+
+.logo {
+
+
+    width:180px;
+
+
+}
+
+
+
+
+
+header h1 {
+
+
+    font-size:38px;
+
+
+}
+
+
+
+
+
+header p {
+
+
+    font-size:18px;
+
+
+}
+
+
+
+
+
+.card {
+
+
+    width:90%;
+
+
+}
+
+
+
+
+
+.sobre-contenedor {
+
+
+    flex-direction:column;
+
+
+}
+
+
+
+
+
+.sobre-texto {
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+.sobre-texto h2 {
+
+
+    font-size:34px;
+
+
+}
+
+
+
+
+
+.sobre-imagen img {
+
+
+    width:250px;
+
+
+}
+
+
+
+}
+
+
+/* ==========================
+   BROCHURE
+   ========================== */
+
+.brochure{
+
+    padding:70px 20px;
+
+    text-align:center;
+
+    background:#101010;
+
+}
+
+.brochure h2{
+
+    color:#00aaff;
+
+    font-size:38px;
+
+    margin-bottom:20px;
+
+}
+
+.brochure p{
+
+    max-width:750px;
+
+    margin:auto;
+
+    color:#d9d9d9;
+
+    font-size:18px;
+
+    line-height:1.7;
+
+    margin-bottom:35px;
+
+}
+
+
+
+}
+
+.btn-brochure:hover{
+
+    background:#00c8ff;
+
+    transform:translateY(-5px) scale(1.03);
+
+}
+
+.brochure-preview{
+
+    width:150px;
+
+    max-width:95%;
+
+    border-radius:15px;
+
+    border:3px solid #00aaff;
+
+    box-shadow:0 0 30px rgba(0,170,255,.35);
+
+    transition:.35s;
+
+}
+
+.brochure-preview:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:0 0 45px rgba(0,170,255,.7);
+
+}
+
+/* ================= PROMOCIONES ================= */
+
+.promociones{
+    padding:60px 20px;
+    background:#111827;
+    text-align:center;
+}
+
+.promociones h2{
+    color:#00bfff;
+    font-size:2rem;
+    margin-bottom:15px;
+}
+
+.promociones p{
+    color:#d6d6d6;
+    margin-bottom:30px;
+    font-size:1.05rem;
+}
+
+.promo-banner{
+    width:100%;
+    max-width:1100px;
+    height:auto;
+    border-radius:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,.35);
+    transition:transform .3s ease;
+}
+
+.promo-banner:hover{
+    transform:scale(1.02);
+}
+
+
+
+/* ==========================
+   CENTRO DE SOPORTE
+   ========================== */
+
+.soporte{
+
+    padding:70px 8%;
+
+    background:#0d0d0d;
+
+    text-align:center;
+
+}
+
+.soporte h2{
+
+    font-size:40px;
+
+    color:#00aaff;
+
+    margin-bottom:20px;
+
+}
+
+.soporte > p{
+
+    max-width:800px;
+
+    margin:auto;
+
+    color:#d9d9d9;
+
+    line-height:1.8;
+
+    margin-bottom:45px;
+
+    font-size:18px;
+
+}
+
+.soporte-contenedor{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:35px;
+
+}
+
+.soporte-card{
+
+    width:330px;
+
+    background:#161616;
+
+    padding:35px;
+
+    border-radius:18px;
+
+    box-shadow:0 0 25px rgba(0,170,255,.20);
+
+    transition:.35s;
+
+}
+
+.soporte-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 0 35px rgba(0,170,255,.45);
+
+}
+
+.soporte-card img{
+
+    width:90px;
+
+    margin-bottom:20px;
+
+}
+
+.soporte-card h3{
+
+    color:#00c8ff;
+
+    font-size:28px;
+
+    margin-bottom:15px;
+
+}
+
+.soporte-card p{
+
+    color:#d6d6d6;
+
+    line-height:1.7;
+
+    margin-bottom:25px;
+
+}
+
+.btn-soporte{
+
+    display:inline-block;
+
+    background:#008cff;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:14px 30px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.btn-soporte:hover{
+
+    background:#00c8ff;
+
+    transform:scale(1.05);
+
+}
+
+.nota-soporte{
+
+    margin-top:40px;
+
+    color:#aaaaaa;
+
+    font-size:15px;
+
+    max-width:850px;
+
+    margin-left:auto;
+
+    margin-right:auto;
+
+}
+
+@media(max-width:768px){
+
+    .soporte-card{
+
+        width:100%;
+
+    }
+
+}

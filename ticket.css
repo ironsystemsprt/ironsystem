@@ -1,0 +1,426 @@
+/* ==========================
+   IRONSYSTEM - TICKET CSS
+   ========================== */
+
+
+/* RESET */
+
+* {
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+
+
+body {
+
+    background:#0b0b0b;
+    color:white;
+
+}
+
+
+
+/* ==========================
+   HEADER IGUAL AL INDEX
+   ========================== */
+
+
+header {
+
+
+    min-height:500px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    position:relative;
+
+
+    background-image:
+
+    linear-gradient(
+        rgba(0,0,0,.25),
+        rgba(0,0,0,.35)
+    ),
+
+    url("./imagenes/fondo2.avif");
+
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+}
+
+
+
+
+/* ENLACE DEL HEADER */
+
+.header-link {
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+
+
+.header-link:hover,
+.header-link:visited,
+.header-link:active {
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+
+
+.hero {
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+
+
+.logo {
+
+    width:260px;
+
+    max-width:80%;
+
+    height:auto;
+
+    margin-bottom:25px;
+
+}
+
+
+
+header h1 {
+
+    font-size:55px;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:#00aaff;
+
+    margin-bottom:15px;
+
+    text-decoration:none;
+
+}
+
+
+
+header p {
+
+    font-size:22px;
+
+    color:white;
+
+    text-decoration:none;
+
+}
+
+
+
+
+
+/* ==========================
+   FORMULARIO TICKET
+   ========================== */
+
+
+.formulario {
+
+    max-width:850px;
+
+    margin:60px auto;
+
+    padding:40px;
+
+    background:#151515;
+
+    border-radius:20px;
+
+
+    box-shadow:
+
+    0 0 25px rgba(0,140,255,.25);
+
+}
+
+
+
+
+label {
+
+    display:block;
+
+    margin-top:20px;
+
+    margin-bottom:8px;
+
+    color:#00aaff;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+}
+
+
+
+
+input,
+select,
+textarea {
+
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:8px;
+
+    border:none;
+
+    outline:none;
+
+    background:#222;
+
+    color:white;
+
+    font-size:16px;
+
+}
+
+
+
+input:focus,
+select:focus,
+textarea:focus {
+
+    box-shadow:0 0 8px #008cff;
+
+}
+
+
+
+
+textarea {
+
+    resize:none;
+
+}
+
+
+
+/* Campo otro servicio */
+
+
+#otroServicio {
+
+    display:none;
+
+}
+
+
+
+/* Titulo explicación */
+
+
+.titulo-problema {
+
+    font-size:22px;
+
+    margin-top:35px;
+
+}
+
+
+
+
+
+/* ==========================
+   BOTONES
+   ========================== */
+
+
+.botones {
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    margin-top:35px;
+
+}
+
+
+
+
+button {
+
+    padding:15px 40px;
+
+    border:none;
+
+    border-radius:30px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+.limpiar {
+
+    background:#444;
+
+    color:white;
+
+}
+
+
+
+.enviar {
+
+    background:#008cff;
+
+    color:white;
+
+}
+
+
+
+.enviar:hover {
+
+    background:#00c8ff;
+
+    transform:scale(1.05);
+
+}
+
+
+
+.limpiar:hover {
+
+    background:#666;
+
+}
+
+
+
+
+
+/* ==========================
+   MENSAJE ENVIO
+   ========================== */
+
+
+#mensaje {
+
+    text-align:center;
+
+    color:#00c8ff;
+
+    font-size:20px;
+
+    margin-top:30px;
+
+}
+
+
+
+
+
+/* ==========================
+   RESPONSIVE
+   ========================== */
+
+
+@media(max-width:768px){
+
+
+header {
+
+    min-height:420px;
+
+}
+
+
+
+.logo {
+
+    width:180px;
+
+}
+
+
+
+header h1 {
+
+    font-size:34px;
+
+}
+
+
+
+header p {
+
+    font-size:18px;
+
+}
+
+
+
+.formulario {
+
+    margin:25px 15px;
+
+    padding:25px;
+
+}
+
+
+
+.botones {
+
+    flex-direction:column;
+
+}
+
+
+}
