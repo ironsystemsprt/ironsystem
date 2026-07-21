@@ -874,3 +874,36 @@ header p {
     box-shadow:0 0 45px rgba(0,170,255,.7);
 
 }
+
+/* ================= PROMOCIONES ================= */
+
+.promociones{
+    padding:60px 20px;
+    background:#111827;
+    text-align:center;
+}
+
+.promociones h2{
+    color:#00bfff;
+    font-size:2rem;
+    margin-bottom:15px;
+}
+
+.promociones p{
+    color:#d6d6d6;
+    margin-bottom:30px;
+    font-size:1.05rem;
+}
+
+.promo-banner{
+    width:100%;
+    max-width:1100px;
+    height:auto;
+    border-radius:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,.35);
+    transition:transform .3s ease;
+}
+
+.promo-banner:hover{
+    transform:scale(1.02);
+}
