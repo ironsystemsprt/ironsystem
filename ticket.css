@@ -424,3 +424,55 @@ header p {
 
 
 }
+
+/* ==========================
+   CONTACTO
+   ========================== */
+
+
+.contacto {
+
+
+    background:#050505;
+
+
+    padding:60px 20px;
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+.contacto h2 {
+
+
+    color:#00aaff;
+
+
+    font-size:35px;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+.contacto p {
+
+
+    font-size:20px;
+
+
+    margin:10px;
+
+
+}

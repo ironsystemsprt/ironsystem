@@ -1067,3 +1067,93 @@ header p {
     }
 
 }
+
+/* ==========================
+   KAI SUITE
+   ========================== */
+
+.kai{
+
+    padding:70px 20px;
+
+    background:#101820;
+
+    text-align:center;
+
+}
+
+.kai h2{
+
+    color:#00c8ff;
+
+    font-size:40px;
+
+    margin-bottom:20px;
+
+}
+
+.kai p{
+
+    max-width:850px;
+
+    margin:0 auto 35px;
+
+    color:#d8d8d8;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+.kai-banner{
+
+    width:100%;
+
+    max-width:1100px;
+
+    border-radius:18px;
+
+    box-shadow:0 0 30px rgba(0,170,255,.25);
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.kai-banner:hover{
+
+    transform:scale(1.02);
+
+    box-shadow:0 0 45px rgba(0,170,255,.55);
+
+}
+
+.kai-demo{
+
+    margin-top:40px;
+
+}
+
+@media(max-width:768px){
+
+    .kai{
+
+        padding:60px 15px;
+
+    }
+
+    .kai h2{
+
+        font-size:32px;
+
+    }
+
+    .kai p{
+
+        font-size:17px;
+
+    }
+
+}
