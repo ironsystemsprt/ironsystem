@@ -1157,3 +1157,79 @@ header p {
     }
 
 }
+
+/* CLIENTES */
+
+.clientes{
+    background:#0d1117;
+    color:#fff;
+    padding:80px 20px;
+}
+
+.clientes h2{
+    text-align:center;
+    font-size:2.4rem;
+    color:#00b4ff;
+    margin-bottom:20px;
+}
+
+.clientes-texto{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    color:#cfd8dc;
+    margin-bottom:50px;
+    line-height:1.8;
+}
+
+.cliente-card{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    gap:40px;
+    align-items:center;
+    background:#161b22;
+    border:1px solid #1f6feb;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.cliente-card img{
+    width:50%;
+    object-fit:cover;
+}
+
+.cliente-info{
+    padding:30px;
+}
+
+.cliente-info h3{
+    color:#00b4ff;
+    margin-bottom:15px;
+}
+
+.cliente-info p{
+    line-height:1.8;
+}
+
+.cliente-badge{
+    display:inline-block;
+    margin-top:20px;
+    background:#1f6feb;
+    padding:10px 20px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+.proximamente{
+    margin-top:60px;
+    text-align:center;
+    border:2px dashed #1f6feb;
+    padding:30px;
+    border-radius:15px;
+}
+
+.proximamente h3{
+    color:#00b4ff;
+    margin-bottom:15px;
+}
