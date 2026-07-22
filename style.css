@@ -1233,3 +1233,9 @@ header p {
     color:#00b4ff;
     margin-bottom:15px;
 }
+
+/* Ajuste de imágenes para celulares */
+img {
+    max-width: 100%;
+    height: auto;
+}
