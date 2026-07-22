@@ -1158,84 +1158,51 @@ header p {
 
 }
 
-/* CLIENTES */
+/* Adaptación clientes para móviles */
 
-.clientes{
-    background:#0d1117;
-    color:#fff;
-    padding:80px 20px;
-}
+@media (max-width: 768px){
 
-.clientes h2{
-    text-align:center;
-    font-size:2.4rem;
-    color:#00b4ff;
-    margin-bottom:20px;
-}
+    .cliente-card{
+        flex-direction: column;
+        width: 90%;
+        margin: auto;
+        gap: 0;
+        overflow:hidden;
+    }
 
-.clientes-texto{
-    max-width:900px;
-    margin:auto;
-    text-align:center;
-    color:#cfd8dc;
-    margin-bottom:50px;
-    line-height:1.8;
-}
+    .cliente-card img{
+        width:100%;
+        height:220px;
+        object-fit:cover;
+    }
 
-.cliente-card{
-    max-width:1100px;
-    margin:auto;
-    display:flex;
-    gap:40px;
-    align-items:center;
-    background:#161b22;
-    border:1px solid #1f6feb;
-    border-radius:15px;
-    overflow:hidden;
-}
+    .cliente-info{
+        padding:25px 20px;
+        text-align:center;
+    }
 
-.cliente-card img{
-    width:50%;
-    object-fit:cover;
-}
+    .cliente-info h3{
+        font-size:1.8rem;
+    }
 
-.cliente-info{
-    padding:30px;
-}
+    .cliente-info p{
+        font-size:1rem;
+        line-height:1.6;
+        word-wrap:break-word;
+    }
 
-.cliente-info h3{
-    color:#00b4ff;
-    margin-bottom:15px;
-}
+    .cliente-badge{
+        margin-top:20px;
+        font-size:0.9rem;
+    }
 
-.cliente-info p{
-    line-height:1.8;
-}
+    .proximamente{
+        width:90%;
+        margin:40px auto;
+        padding:25px 15px;
+    }
 
-.cliente-badge{
-    display:inline-block;
-    margin-top:20px;
-    background:#1f6feb;
-    padding:10px 20px;
-    border-radius:30px;
-    font-weight:bold;
-}
-
-.proximamente{
-    margin-top:60px;
-    text-align:center;
-    border:2px dashed #1f6feb;
-    padding:30px;
-    border-radius:15px;
-}
-
-.proximamente h3{
-    color:#00b4ff;
-    margin-bottom:15px;
-}
-
-/* Ajuste de imágenes para celulares */
-img {
-    max-width: 100%;
-    height: auto;
+    .proximamente p{
+        font-size:1rem;
+    }
 }
