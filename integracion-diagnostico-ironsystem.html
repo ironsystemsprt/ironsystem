@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -436,22 +436,176 @@ body {
    CELULARES
 ===================================================== */
 
+```css
+/* =====================================================
+   CELULARES
+===================================================== */
+
 @media (max-width: 600px) {
 
+    /* Fondo del popup */
     #diagnosticoOverlay {
-
-        padding: 5px;
-
+        padding: 8px;
+        align-items: flex-start;
+        overflow-y: auto;
     }
 
+    /* Ventana del diagnóstico */
+    .diagnostico-modal {
+        width: 100%;
+        max-width: 100%;
+        margin: 10px 0;
+        border-radius: 12px;
+    }
+
+    /* Cabecera */
+    .diagnostico-header {
+        padding: 12px 14px;
+        min-height: 52px;
+    }
+
+    .diagnostico-header h2 {
+        font-size: 18px;
+        line-height: 1.2;
+    }
+
+    .btn-cerrar-diagnostico {
+        font-size: 30px;
+        padding: 4px 8px;
+    }
+
+    /* Cuerpo */
+    .diagnostico-body {
+        padding: 14px;
+    }
+
+    .diagnostico-paso {
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+
+    .diagnostico-body h3 {
+        font-size: 18px;
+        line-height: 1.3;
+        margin: 6px 0 14px;
+    }
+
+    /* Opciones */
+    .diagnostico-opciones {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .diagnostico-opcion {
+        width: 100%;
+        min-height: 48px;
+        padding: 12px 13px;
+        font-size: 14px;
+        line-height: 1.3;
+        text-align: left;
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+
+    /* Footer */
+    .diagnostico-footer {
+        width: 100%;
+        padding: 12px 14px;
+        gap: 10px;
+    }
+
+    .diagnostico-btn {
+        min-height: 44px;
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    .diagnostico-btn-atras {
+        flex: 0 0 auto;
+    }
+
+    .diagnostico-btn-siguiente {
+        flex: 1;
+    }
+
+    /* Resultado */
+    .diagnostico-resultado {
+        width: 100%;
+    }
+
+    .diagnostico-resultado-icono {
+        font-size: 40px;
+    }
+
+    .diagnostico-resultado h3 {
+        font-size: 19px;
+        line-height: 1.3;
+    }
+
+    .diagnostico-resultado-box {
+        width: 100%;
+        padding: 13px;
+    }
+
+    .diagnostico-resultado-box p {
+        font-size: 14px;
+        line-height: 1.5;
+        overflow-wrap: break-word;
+    }
+
+    /* WhatsApp */
+    .diagnostico-whatsapp {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        padding: 13px 14px;
+        font-size: 14px;
+    }
+}
+
+
+/* =====================================================
+   CELULARES MUY PEQUEÑOS
+===================================================== */
+
+@media (max-width: 380px) {
+
+    #diagnosticoOverlay {
+        padding: 5px;
+    }
 
     .diagnostico-modal {
-
-        max-width: 100%;
-
-        border-radius: 12px;
-
+        margin: 5px 0;
     }
+
+    .diagnostico-body {
+        padding: 12px;
+    }
+
+    .diagnostico-body h3 {
+        font-size: 17px;
+    }
+
+    .diagnostico-opcion {
+        font-size: 13px;
+        min-height: 46px;
+        padding: 11px 12px;
+    }
+
+    .diagnostico-footer {
+        padding: 10px 12px;
+    }
+
+    .diagnostico-btn {
+        font-size: 13px;
+        padding: 9px 12px;
+    }
+}
+
+
 
 
     .diagnostico-header {
@@ -1370,4 +1524,4 @@ document.addEventListener(
 </body>
 
 </html>
-```
+

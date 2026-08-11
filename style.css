@@ -1253,13 +1253,20 @@ header p {
  .compromiso { 
     width: 100%; text-align: center; padding: 25px 15px; 
 }
- .compromiso-banner
- { 
+ .compromiso-banner {
     width: 100%;
-     max-width: 1200px; 
-     height: auto; 
-     display: block; 
-     margin: 0 auto; 
-     border-radius: 10px; 
-    
+    max-width: 1200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .compromiso-banner {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
     }
+}
