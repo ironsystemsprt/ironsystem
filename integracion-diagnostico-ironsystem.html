@@ -1,0 +1,1373 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Diagnóstico TI | IronSystem</title>
+
+
+<style>
+
+/* =====================================================
+   FONDO GENERAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080b10;
+    color: white;
+}
+
+
+/* =====================================================
+   BOTÓN PARA ABRIR DIAGNÓSTICO
+===================================================== */
+
+.btn-diagnostico {
+    display: block;
+    margin: 15px auto 0;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 10px;
+    background: #ff7a00;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 18px rgba(255, 122, 0, 0.35);
+    transition: all 0.25s ease;
+}
+
+.btn-diagnostico:hover {
+    background: #ff941f;
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   OVERLAY
+===================================================== */
+
+#diagnosticoOverlay {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.86);
+
+    z-index: 99999;
+
+    padding: 10px;
+
+    overflow-y: auto;
+}
+
+
+#diagnosticoOverlay.activo {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+/* =====================================================
+   CUADRO DEL TEST
+===================================================== */
+
+.diagnostico-modal {
+
+    width: 100%;
+
+    max-width: 580px;
+
+    background: #10151c;
+
+    border: 1px solid #1677ff;
+
+    border-radius: 14px;
+
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.8);
+
+    overflow: hidden;
+
+    animation: aparecer 0.25s ease;
+
+}
+
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(0.95);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   CABECERA
+===================================================== */
+
+.diagnostico-header {
+
+    background: #080c11;
+
+    padding: 12px 18px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-bottom: 1px solid #263545;
+
+}
+
+
+.diagnostico-header h2 {
+
+    margin: 0;
+
+    font-size: 20px;
+
+}
+
+
+.diagnostico-header h2 span {
+
+    color: #1677ff;
+
+}
+
+
+.btn-cerrar-diagnostico {
+
+    border: none;
+
+    background: transparent;
+
+    color: #aaa;
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+}
+
+
+.btn-cerrar-diagnostico:hover {
+
+    color: white;
+
+}
+
+
+/* =====================================================
+   CUERPO
+===================================================== */
+
+.diagnostico-body {
+
+    padding: 16px 20px;
+
+}
+
+
+.diagnostico-paso {
+
+    color: #8fa0b2;
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.diagnostico-body h3 {
+
+    margin: 5px 0 14px;
+
+    font-size: 20px;
+
+    line-height: 1.25;
+
+}
+
+
+/* =====================================================
+   OPCIONES
+===================================================== */
+
+.diagnostico-opciones {
+
+    display: grid;
+
+    gap: 8px;
+
+}
+
+
+.diagnostico-opcion {
+
+    width: 100%;
+
+    padding: 11px 14px;
+
+    min-height: 45px;
+
+    background: #151c25;
+
+    border: 1px solid #2b3948;
+
+    border-radius: 8px;
+
+    color: white;
+
+    text-align: left;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+}
+
+
+.diagnostico-opcion:hover {
+
+    background: #182331;
+
+    border-color: #1677ff;
+
+}
+
+
+.diagnostico-opcion.seleccionada {
+
+    background: #102a49;
+
+    border-color: #1677ff;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.diagnostico-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 12px 20px;
+
+    border-top: 1px solid #263545;
+
+    background: #0b1016;
+
+}
+
+
+.diagnostico-btn {
+
+    border: none;
+
+    border-radius: 7px;
+
+    padding: 10px 17px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+}
+
+
+.diagnostico-btn-atras {
+
+    background: #303943;
+
+    color: white;
+
+}
+
+
+.diagnostico-btn-siguiente {
+
+    background: #1677ff;
+
+    color: white;
+
+}
+
+
+.diagnostico-btn-siguiente:hover {
+
+    background: #3189ff;
+
+}
+
+
+/* =====================================================
+   RESULTADO
+===================================================== */
+
+.diagnostico-resultado {
+
+    text-align: center;
+
+}
+
+
+.diagnostico-resultado-icono {
+
+    font-size: 45px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.diagnostico-resultado h3 {
+
+    font-size: 21px;
+
+    margin-bottom: 12px;
+
+    color: #1677ff;
+
+}
+
+
+.diagnostico-resultado-box {
+
+    background: #0b1016;
+
+    border: 1px solid #263545;
+
+    border-radius: 8px;
+
+    padding: 14px;
+
+    text-align: left;
+
+}
+
+
+.diagnostico-resultado-box p {
+
+    font-size: 14px;
+
+    line-height: 1.45;
+
+}
+
+
+.diagnostico-resultado-box strong {
+
+    color: #1677ff;
+
+}
+
+
+.diagnostico-whatsapp {
+
+    display: inline-block;
+
+    margin-top: 14px;
+
+    padding: 11px 18px;
+
+    border-radius: 7px;
+
+    background: #25d366;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   CELULARES
+===================================================== */
+
+@media (max-width: 600px) {
+
+    #diagnosticoOverlay {
+
+        padding: 5px;
+
+    }
+
+
+    .diagnostico-modal {
+
+        max-width: 100%;
+
+        border-radius: 12px;
+
+    }
+
+
+    .diagnostico-header {
+
+        padding: 10px 14px;
+
+    }
+
+
+    .diagnostico-header h2 {
+
+        font-size: 18px;
+
+    }
+
+
+    .diagnostico-body {
+
+        padding: 13px 15px;
+
+    }
+
+
+    .diagnostico-body h3 {
+
+        font-size: 18px;
+
+        margin-bottom: 10px;
+
+    }
+
+
+    .diagnostico-opciones {
+
+        gap: 6px;
+
+    }
+
+
+    .diagnostico-opcion {
+
+        padding: 9px 12px;
+
+        min-height: 40px;
+
+        font-size: 13px;
+
+    }
+
+
+    .diagnostico-footer {
+
+        padding: 10px 15px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BOTÓN DE PRUEBA
+     
+     ESTE BOTÓN ES EL QUE DEBES USAR EN TU INDEX
+===================================================== -->
+
+<button
+    type="button"
+    class="btn-diagnostico"
+    onclick="abrirDiagnostico()">
+
+    🩺 Iniciar diagnóstico TI
+
+</button>
+
+
+
+<!-- =====================================================
+     POPUP
+===================================================== -->
+
+<div
+    id="diagnosticoOverlay"
+    aria-hidden="true">
+
+
+    <div
+        class="diagnostico-modal"
+        role="dialog"
+        aria-modal="true">
+
+
+        <!-- CABECERA -->
+
+        <div class="diagnostico-header">
+
+            <h2>
+
+                🩺 Diagnóstico
+                <span>TI</span>
+
+            </h2>
+
+
+            <button
+                type="button"
+                class="btn-cerrar-diagnostico"
+                onclick="cerrarDiagnostico()"
+                aria-label="Cerrar">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+
+        <!-- CONTENIDO -->
+
+        <div class="diagnostico-body">
+
+            <div id="diagnosticoContenido"></div>
+
+        </div>
+
+
+
+        <!-- BOTONES -->
+
+        <div class="diagnostico-footer">
+
+            <button
+                type="button"
+                id="btnAtrasDiagnostico"
+                class="diagnostico-btn diagnostico-btn-atras"
+                onclick="anteriorPregunta()">
+
+                ← Atrás
+
+            </button>
+
+
+            <button
+                type="button"
+                id="btnSiguienteDiagnostico"
+                class="diagnostico-btn diagnostico-btn-siguiente"
+                onclick="siguientePregunta()">
+
+                Siguiente →
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   PREGUNTAS
+===================================================== */
+
+const preguntasDiagnostico = [
+
+    {
+        titulo: "¿Qué problema estás experimentando?",
+
+        opciones: [
+
+            {
+                texto: "💻 El computador está lento",
+                categoria: "rendimiento"
+            },
+
+            {
+                texto: "🌐 No tengo Internet",
+                categoria: "internet"
+            },
+
+            {
+                texto: "🖨️ Tengo problemas con una impresora",
+                categoria: "impresora"
+            },
+
+            {
+                texto: "🦠 Sospecho de virus o malware",
+                categoria: "virus"
+            },
+
+            {
+                texto: "🪟 Tengo problemas con Windows",
+                categoria: "windows"
+            },
+
+            {
+                texto: "📡 Tengo problemas con WiFi o red",
+                categoria: "red"
+            },
+
+            {
+                texto: "🔧 Otro problema informático",
+                categoria: "otro"
+            }
+
+        ]
+
+    },
+
+
+    {
+        titulo: "¿Cuándo comenzó el problema?",
+
+        opciones: [
+
+            {
+                texto: "🕐 Hoy",
+                categoria: "reciente"
+            },
+
+            {
+                texto: "📅 Hace algunos días",
+                categoria: "dias"
+            },
+
+            {
+                texto: "📆 Hace varias semanas",
+                categoria: "semanas"
+            },
+
+            {
+                texto: "🗓️ Hace meses",
+                categoria: "meses"
+            }
+
+        ]
+
+    },
+
+
+    {
+        titulo: "¿El problema ocurre constantemente?",
+
+        opciones: [
+
+            {
+                texto: "🔴 Sí, ocurre todo el tiempo",
+                categoria: "constante"
+            },
+
+            {
+                texto: "🟠 Ocurre algunas veces",
+                categoria: "intermitente"
+            },
+
+            {
+                texto: "🟡 Solo ocurre al iniciar",
+                categoria: "inicio"
+            },
+
+            {
+                texto: "🔵 Solo ocurre con ciertos programas",
+                categoria: "programas"
+            }
+
+        ]
+
+    },
+
+
+    {
+        titulo: "¿Has intentado solucionar el problema?",
+
+        opciones: [
+
+            {
+                texto: "❌ No, todavía no",
+                categoria: "ninguno"
+            },
+
+            {
+                texto: "🔄 Reinicié el computador",
+                categoria: "reinicio"
+            },
+
+            {
+                texto: "🛠️ Intenté algunas soluciones",
+                categoria: "basico"
+            },
+
+            {
+                texto: "👨‍💻 Necesito asistencia técnica",
+                categoria: "tecnico"
+            }
+
+        ]
+
+    }
+
+];
+
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let preguntaActual = 0;
+
+let respuestasDiagnostico = [];
+
+
+
+/* =====================================================
+   ABRIR
+===================================================== */
+
+function abrirDiagnostico() {
+
+    preguntaActual = 0;
+
+    respuestasDiagnostico = [];
+
+
+    const overlay =
+        document.getElementById("diagnosticoOverlay");
+
+
+    overlay.classList.add("activo");
+
+    overlay.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+
+    document.body.style.overflow = "hidden";
+
+
+    mostrarPregunta();
+
+}
+
+
+
+/* =====================================================
+   CERRAR
+===================================================== */
+
+function cerrarDiagnostico() {
+
+    const overlay =
+        document.getElementById("diagnosticoOverlay");
+
+
+    overlay.classList.remove("activo");
+
+
+    overlay.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    document.body.style.overflow = "";
+
+}
+
+
+
+/* =====================================================
+   MOSTRAR PREGUNTA
+===================================================== */
+
+function mostrarPregunta() {
+
+    const contenido =
+        document.getElementById(
+            "diagnosticoContenido"
+        );
+
+
+    const pregunta =
+        preguntasDiagnostico[preguntaActual];
+
+
+    let html = `
+
+        <div class="diagnostico-paso">
+
+            Pregunta ${preguntaActual + 1}
+            de ${preguntasDiagnostico.length}
+
+        </div>
+
+
+        <h3>
+
+            ${pregunta.titulo}
+
+        </h3>
+
+
+        <div class="diagnostico-opciones">
+
+    `;
+
+
+    pregunta.opciones.forEach(
+        (opcion, indice) => {
+
+
+            const seleccionada =
+                respuestasDiagnostico[
+                    preguntaActual
+                ] === indice;
+
+
+            html += `
+
+                <button
+                    type="button"
+                    class="diagnostico-opcion
+                    ${seleccionada ? "seleccionada" : ""}"
+                    onclick="seleccionarOpcion(${indice})">
+
+                    ${opcion.texto}
+
+                </button>
+
+            `;
+
+        }
+    );
+
+
+    html += `
+
+        </div>
+
+    `;
+
+
+    contenido.innerHTML = html;
+
+
+
+    /* BOTÓN ATRÁS */
+
+    const btnAtras =
+        document.getElementById(
+            "btnAtrasDiagnostico"
+        );
+
+
+    btnAtras.style.visibility =
+        preguntaActual === 0
+            ? "hidden"
+            : "visible";
+
+
+
+    /* BOTÓN SIGUIENTE */
+
+    const btnSiguiente =
+        document.getElementById(
+            "btnSiguienteDiagnostico"
+        );
+
+
+    btnSiguiente.style.display =
+        "block";
+
+
+    btnSiguiente.textContent =
+        preguntaActual ===
+        preguntasDiagnostico.length - 1
+
+            ? "Ver diagnóstico"
+
+            : "Siguiente →";
+
+}
+
+
+
+/* =====================================================
+   SELECCIONAR
+===================================================== */
+
+function seleccionarOpcion(indice) {
+
+    respuestasDiagnostico[
+        preguntaActual
+    ] = indice;
+
+
+    mostrarPregunta();
+
+}
+
+
+
+/* =====================================================
+   SIGUIENTE
+===================================================== */
+
+function siguientePregunta() {
+
+
+    if (
+        respuestasDiagnostico[
+            preguntaActual
+        ] === undefined
+    ) {
+
+        alert(
+            "Por favor selecciona una opción."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        preguntaActual <
+        preguntasDiagnostico.length - 1
+    ) {
+
+        preguntaActual++;
+
+        mostrarPregunta();
+
+    }
+
+    else {
+
+        mostrarResultado();
+
+    }
+
+}
+
+
+
+/* =====================================================
+   ATRÁS
+===================================================== */
+
+function anteriorPregunta() {
+
+    if (preguntaActual > 0) {
+
+        preguntaActual--;
+
+        mostrarPregunta();
+
+    }
+
+}
+
+
+
+/* =====================================================
+   RESULTADO
+===================================================== */
+
+function mostrarResultado() {
+
+
+    const primeraRespuesta =
+
+        preguntasDiagnostico[0]
+        .opciones[
+            respuestasDiagnostico[0]
+        ];
+
+
+
+    let nivel =
+        "Diagnóstico preventivo";
+
+
+    let descripcion =
+        "Se recomienda realizar una revisión técnica para determinar la causa exacta del problema.";
+
+
+    let icono =
+        "🩺";
+
+
+
+    /* COMPUTADOR LENTO */
+
+    if (
+        primeraRespuesta.categoria ===
+        "rendimiento"
+    ) {
+
+        nivel =
+            "Problema de rendimiento";
+
+
+        descripcion =
+            "El equipo podría presentar falta de recursos, exceso de programas de inicio, almacenamiento saturado, problemas de software o necesidad de mantenimiento.";
+
+
+        icono =
+            "💻";
+
+    }
+
+
+
+    /* INTERNET */
+
+    else if (
+        primeraRespuesta.categoria ===
+        "internet"
+    ) {
+
+        nivel =
+            "Problema de conectividad";
+
+
+        descripcion =
+            "Se recomienda revisar conexión física, router, configuración de red, DNS y conexión con el proveedor de Internet.";
+
+
+        icono =
+            "🌐";
+
+    }
+
+
+
+    /* IMPRESORA */
+
+    else if (
+        primeraRespuesta.categoria ===
+        "impresora"
+    ) {
+
+        nivel =
+            "Problema de impresión";
+
+
+        descripcion =
+            "Puede existir un problema con drivers, cola de impresión, conexión de red, configuración o comunicación entre el equipo y la impresora.";
+
+
+        icono =
+            "🖨️";
+
+    }
+
+
+
+    /* VIRUS */
+
+    else if (
+        primeraRespuesta.categoria ===
+        "virus"
+    ) {
+
+        nivel =
+            "Posible amenaza de seguridad";
+
+
+        descripcion =
+            "Se recomienda realizar un análisis completo del equipo, revisar programas instalados y verificar posibles amenazas o malware.";
+
+
+        icono =
+            "🦠";
+
+    }
+
+
+
+    /* WINDOWS */
+
+    else if (
+        primeraRespuesta.categoria ===
+        "windows"
+    ) {
+
+        nivel =
+            "Problema de Windows";
+
+
+        descripcion =
+            "Puede estar relacionado con archivos del sistema, actualizaciones, drivers, configuración o errores de inicio.";
+
+
+        icono =
+            "🪟";
+
+    }
+
+
+
+    /* RED */
+
+    else if (
+        primeraRespuesta.categoria ===
+        "red"
+    ) {
+
+        nivel =
+            "Problema de red / WiFi";
+
+
+        descripcion =
+            "Se recomienda revisar router, puntos de acceso, configuración IP, señal WiFi y conectividad de los dispositivos.";
+
+
+        icono =
+            "📡";
+
+    }
+
+
+
+    /* OTRO */
+
+    else if (
+        primeraRespuesta.categoria ===
+        "otro"
+    ) {
+
+        nivel =
+            "Problema informático general";
+
+
+        descripcion =
+            "El problema requiere una evaluación técnica para identificar su causa y determinar la solución más adecuada.";
+
+
+        icono =
+            "🔧";
+
+    }
+
+
+
+    /* RESULTADO */
+
+    document.getElementById(
+        "diagnosticoContenido"
+    ).innerHTML = `
+
+        <div class="diagnostico-resultado">
+
+
+            <div class="diagnostico-resultado-icono">
+
+                ${icono}
+
+            </div>
+
+
+            <h3>
+
+                Resultado del diagnóstico
+
+            </h3>
+
+
+            <div class="diagnostico-resultado-box">
+
+
+                <p>
+
+                    <strong>
+                        Problema detectado:
+                    </strong>
+
+                    <br>
+
+                    ${nivel}
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Evaluación:
+                    </strong>
+
+                    <br>
+
+                    ${descripcion}
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Recomendación:
+                    </strong>
+
+                    <br>
+
+                    Solicitar una revisión técnica para
+                    realizar un diagnóstico completo y
+                    determinar la solución.
+
+                </p>
+
+
+            </div>
+
+
+
+            <a
+
+                class="diagnostico-whatsapp"
+
+                href="https://wa.me/56988948883?text=Hola%20IronSystem,%20realicé%20el%20diagnóstico%20TI%20y%20necesito%20ayuda."
+
+                target="_blank">
+
+                📲 Solicitar asistencia por WhatsApp
+
+            </a>
+
+
+        </div>
+
+    `;
+
+
+
+    document.getElementById(
+        "btnAtrasDiagnostico"
+    ).style.visibility =
+        "hidden";
+
+
+    document.getElementById(
+        "btnSiguienteDiagnostico"
+    ).style.display =
+        "none";
+
+}
+
+
+
+/* =====================================================
+   CERRAR AL HACER CLICK FUERA
+===================================================== */
+
+document
+    .getElementById(
+        "diagnosticoOverlay"
+    )
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target === this
+            ) {
+
+                cerrarDiagnostico();
+
+            }
+
+        }
+    );
+
+
+
+/* =====================================================
+   ESC PARA CERRAR
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            cerrarDiagnostico();
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
+```

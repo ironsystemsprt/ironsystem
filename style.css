@@ -1248,3 +1248,18 @@ header p {
     margin: 50px 0;
     box-shadow: 0 0 12px #00aaff;
 }
+
+/* ================= IMAGEN COMPROMISO ================= */
+ .compromiso { 
+    width: 100%; text-align: center; padding: 25px 15px; 
+}
+ .compromiso-banner
+ { 
+    width: 100%;
+     max-width: 1200px; 
+     height: auto; 
+     display: block; 
+     margin: 0 auto; 
+     border-radius: 10px; 
+    
+    }
